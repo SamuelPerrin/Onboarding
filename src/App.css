@@ -59,5 +59,7 @@ button {
 }
 
 .success {
-  color:rgb(26, 211, 26);
+  color: white;
+  margin-top:10px;
+  background-color:rgb(71, 131, 71)
 }

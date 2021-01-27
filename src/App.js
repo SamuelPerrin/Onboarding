@@ -41,8 +41,7 @@ function App() {
   const submit = () => {
     axios
       .post('https://reqres.in/api/users',formValues)
-      .then(res => {
-        console.log("it worked!", res);
+      .then(() => {
         setShowModal(!showModal);
       })
       .catch(err => console.log(err))
@@ -62,9 +61,10 @@ function App() {
         disabled={disabled}
         errors={errors}
       /> }
-      {showModal &&
-      <div className='success'>
-        An account for {formValues.username} has been successfully created!
+      {showModal && <div className='modal'>
+        <div className='success'>
+          An account for {formValues.username} has been successfully created!
+        </div>
         <button onClick={() => setShowModal(false)}>Make another user</button>
       </div>}
     </div>
