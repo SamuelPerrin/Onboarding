@@ -2,7 +2,7 @@ import React from 'react';
 
 function Form(props) {
   const { username, email, password, terms } = props.values;
-  const { submit, update } = props;
+  const { submit, update, disabled, errors } = props;
 
   const handleChange = evt => {
     const {name, value, checked, type} = evt.target;
@@ -18,7 +18,7 @@ function Form(props) {
   return (
     <div>
       <form>
-        <label> Name
+        <label> Name:
           <input 
             type='text'
             name='username'
@@ -26,7 +26,8 @@ function Form(props) {
             onChange={handleChange}
           />
         </label>
-        <label> Email
+        <span className='error'>{errors.username}</span>
+        <label> Email:
           <input 
             type='text'
             name='email'
@@ -34,23 +35,27 @@ function Form(props) {
             onChange={handleChange}
           />
         </label>
-        <label>Password
+        <span className='error'>{errors.email}</span>
+        <label>Password:
           <input 
-            type='text'
+            type='password'
             name='password'
             value={password}
             onChange={handleChange}
           />
         </label>
-        <label>I agree to the <a href="#">Terms and Conditions</a></label>
+        {errors.password && <span className='error'>{errors.password}</span>}
+        <label>
           <input
             type='checkbox'
             name='terms'
             value={terms}
             checked={terms}
             onChange={handleChange}
-          />
-        <button onClick={handleSubmit}>submit</button>
+          /> I agree to the <a href="#">Terms and Conditions</a>.
+        </label>
+        {errors.terms && <span className='error'>{errors.terms}</span>}
+        <button disabled={disabled} onClick={handleSubmit}>submit</button>
       </form>
     </div>
   )

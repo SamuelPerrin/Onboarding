@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.error {
+  color:red;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin:5% 30%;
+}
+label {
+  margin:15px;
+}
+input {
+  margin-left:5px;
+}
+button {
+  margin-top:15px;
+}
+
+.success {
+  color: white;
+  margin-top:10px;
+  background-color:rgb(71, 131, 71)
+}
